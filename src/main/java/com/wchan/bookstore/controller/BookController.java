@@ -23,6 +23,10 @@ public class BookController {
                 .title("My Second Book Title")
                 .build();
 
+        BookDto bookthree = BookDto.builder()
+                .title("My Third Book Title")
+                .build();
+
         List<BookDto> books = new ArrayList<>();
         books.add(book);
         books.add(booktwo);
