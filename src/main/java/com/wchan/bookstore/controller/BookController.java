@@ -30,6 +30,7 @@ public class BookController {
         List<BookDto> books = new ArrayList<>();
         books.add(book);
         books.add(booktwo);
+        books.add(bookthree);
 
         return ResponseEntity.ok(books);
     }
