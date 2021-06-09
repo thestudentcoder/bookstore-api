@@ -19,9 +19,13 @@ public class BookController {
                 .title("My First Book Title")
                 .build();
 
+        BookDto booktwo = BookDto.builder()
+                .title("My Second Book Title")
+                .build();
 
         List<BookDto> books = new ArrayList<>();
         books.add(book);
+        books.add(booktwo);
 
         return ResponseEntity.ok(books);
     }
