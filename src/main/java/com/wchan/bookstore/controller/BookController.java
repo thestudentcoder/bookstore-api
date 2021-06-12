@@ -1,6 +1,8 @@
 package com.wchan.bookstore.controller;
 
 import com.wchan.bookstore.dto.BookDto;
+import com.wchan.bookstore.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,25 +15,12 @@ import java.util.List;
 @RequestMapping("/api/v1/books")
 public class BookController {
 
+    @Autowired
+    private BookService bookService;
+
     @GetMapping
     public ResponseEntity<List<BookDto>> getBooks() {
-        BookDto book = BookDto.builder()
-                .title("My First Book Title")
-                .build();
-
-        BookDto booktwo = BookDto.builder()
-                .title("My Second Book Title")
-                .build();
-
-        BookDto bookthree = BookDto.builder()
-                .title("My Third Book Title")
-                .build();
-
-        List<BookDto> books = new ArrayList<>();
-        books.add(book);
-        books.add(booktwo);
-        books.add(bookthree);
-
+        List<BookDto> books = bookService.getBooks();
         return ResponseEntity.ok(books);
     }
 }
